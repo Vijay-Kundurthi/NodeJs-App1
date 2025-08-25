@@ -1,0 +1,1 @@
+// npm add --save-dev @types/node --> add types node to current project.
