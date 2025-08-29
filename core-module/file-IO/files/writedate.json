@@ -1,0 +1,22 @@
+[
+    {
+        "userId": 1,
+        "username": "vijay",
+        "age": 31
+    },
+    {
+        "userId": 2,
+        "username": "Raj",
+        "age": 31
+    },
+    {
+        "userId": 3,
+        "username": "Tumu",
+        "age": 32
+    },
+    {
+        "userId": 4,
+        "username": "Shamukha",
+        "age": 30
+    }
+]
