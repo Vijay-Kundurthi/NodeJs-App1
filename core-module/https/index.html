@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO HTTPS Test</title>
+  <script src="https://cdn.socket.io/4.5.1/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Socket.IO HTTPS Chat</h1>
+  <input id="msg" autocomplete="off" /><button onclick="sendMessage()">Send</button>
+  <ul id="messages"></ul>
+
+  <script>
+    const socket = io('https://localhost:8443', {secure: true});
+
+    socket.on('connect', () => {
+      console.log('Connected to server');
+    });
+
+    socket.on('chat message', function(msg){
+      const li = document.createElement('li');
+      li.textContent = msg;
+      document.getElementById('messages').appendChild(li);
+    });
+
+    function sendMessage() {
+      const input = document.getElementById('msg');
+      const message = input.value;
+      socket.emit('chat message', message);
+      input.value = '';
+    }
+  </script>
+</body>
+</html>
