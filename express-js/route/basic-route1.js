@@ -14,6 +14,9 @@ app.get('/json', (req, res)=> {
 app.get('/json1', (req, res) =>{
     res.json({status:200, message: 'success message..'}); // sets content-type: application/json
 });
+app.all('/{*any}', (req, res) => {
+  res.status(404).send('404 - Page not found');
+});
 app.listen(3000, () => {
     console.log('server is running on :http://localhost:3000');
 })
