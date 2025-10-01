@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .user-card {
+      background: white;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+    }
+    .user-card h2 {
+      margin-top: 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      color: #34495e;
+    }
+    .field {
+      margin: 6px 0;
+    }
+    .field strong {
+      width: 120px;
+      display: inline-block;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>User List</h1>
+
+  <% users.forEach(user => { %>
+    <div class="user-card">
+      <h2><%= user.firstname %> <%= user.lastname %> (ID: <%= user.id %>)</h2>
+
+      <div class="field"><strong>Email:</strong> <%= user.email %></div>
+      <div class="field"><strong>Birth Date:</strong> <%= user.birthDate %></div>
+      <div class="field"><strong>Phone:</strong> <%= user.phone %></div>
+      <div class="field"><strong>Website:</strong> 
+        <a href="http://<%= user.website %>" target="_blank"><%= user.website %></a>
+      </div>
+
+      <h3>Login Info</h3>
+      <div class="field"><strong>Username:</strong> <%= user.login.username %></div>
+      <div class="field"><strong>UUID:</strong> <%= user.login.uuid %></div>
+      <div class="field"><strong>Registered:</strong> <%= user.login.registered %></div>
+
+      <h3>Address</h3>
+      <div class="field"><strong>Street:</strong> <%= user.address.street %></div>
+      <div class="field"><strong>Suite:</strong> <%= user.address.suite %></div>
+      <div class="field"><strong>City:</strong> <%= user.address.city %></div>
+      <div class="field"><strong>Zipcode:</strong> <%= user.address.zipcode %></div>
+      <div class="field"><strong>Geo:</strong> Lat: <%= user.address.geo.lat %>, Lng: <%= user.address.geo.lng %></div>
+
+      <h3>Company</h3>
+      <div class="field"><strong>Name:</strong> <%= user.company.name %></div>
+      <div class="field"><strong>Catch Phrase:</strong> <%= user.company.catchPhrase %></div>
+      <div class="field"><strong>BS:</strong> <%= user.company.bs %></div>
+    </div>
+  <% }) %>
+
+</body>
+</html>
